@@ -1,17 +1,17 @@
 <template>
-  <div v-if="all_education">
+  <div v-if="all_merchandiser">
     <div class="row">
         <div class="col-6">
           <router-link :to="{path: 'home'}">
-          <h3 style="font-weight: bold" class="text-primary">Schedule Education List</h3>
+          <h3 style="font-weight: bold" class="text-primary">Merchandiser List</h3>
           </router-link>
         </div>
 
         <div class="col-6">
-          <router-link :to="{path: '/create-education'}">
+          <router-link :to="{path: '/create-merchandiser'}">
             <a class="float" style="position: absolute; right: 0">
               <button type="button" class="btn btn-primary" style="font-size: 15px; margin-right: 20px">
-                <span class="fas fa-plus"></span> Create Education
+                <span class="fas fa-plus"></span> Create Merchandiser
               </button>
             </a>
           </router-link>
@@ -21,35 +21,29 @@
       <thead class="tableHeader">
       <tr>
         <th scope="col">SL</th>
-        <th scope="col">Name</th>
-        <th scope="col">Address</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Email</th>
+        <th scope="col">Product</th>
         <th scope="col">Brand</th>
-        <th scope="col">Date & Time</th>
-        <th scope="col">Hours</th>
-        <th scope="col">Vendor Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">Quantity</th>
       </tr>
       </thead>
 
       <tr
         class="tableRow"
-        v-for="(education, SL) in all_education"
-        :key="education">
+        v-for="(merchandiser, SL) in all_merchandiser"
+        :key="merchandiser">
         <td>{{SL+1}}</td>
-        <td>{{education.name}}</td>
-        <td>{{education.address}}</td>
-        <td>{{education.phone}}</td>
-        <td>{{education.email}}</td>
-        <td>{{education.brand}}</td>
-        <td>{{education.date_time}}</td>
-        <td>{{education.no_of_hours}}</td>
-        <td v-if="education.acc_vendor">{{education.acc_vendor.vendor_name}}</td>
+        <td>{{merchandiser.product}}</td>
+        <td>{{merchandiser.brand}}</td>
+        <td>{{merchandiser.type}}</td>
+        <td>{{merchandiser.description}}</td>
+        <td>{{merchandiser.quantity}}</td>
 
         <td class="td_action">
           <i
             class="fas fa-trash-alt"
-            @click="deleteEducationItem(education.id) in all_education"
+            @click="deleteMerchandiserItem(merchandiser.id) in all_merchandiser"
           ></i>
         </td>
       </tr>
@@ -62,25 +56,25 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 export default {
-  name: 'VendorList',
+  name: 'MerchandiserList',
   data () {
     return {
-      all_education: null
+      all_merchandiser: null
     }
   },
   async created () {
-    await this.GetScheduleEducationList()
+    await this.GetMerchandiserList()
   },
   methods: {
-    GetScheduleEducationList: function () {
-      axios.get('http://127.0.0.1:8000/api/education/').then((response) => {
-        this.all_education = response.data.results
-        console.log('ALLDATA##', this.all_education)
+    GetMerchandiserList: function () {
+      axios.get('http://127.0.0.1:8000/api/merchandise/').then((response) => {
+        this.all_merchandiser = response.data.results
+        console.log('ALLDATA##', this.all_merchandiser)
         console.log(response.status)
       })
     },
 
-    deleteEducationItem: function (id) {
+    deleteMerchandiserItem: function (id) {
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -91,20 +85,20 @@ export default {
         confirmButtonText: 'Yes, delete it!'
       }).then((response) => {
         if (response.isConfirmed) {
-          axios.delete('http://127.0.0.1:8000/api/education/' + id + '/').then((response) => {
+          axios.delete('http://127.0.0.1:8000/api/merchandise/' + id + '/').then((response) => {
             if (response.status === 204) {
-              this.GetScheduleEducationList()
+              this.GetMerchandiserList()
             }
           })
           Swal.fire(
             'Deleted!',
-            'Your Education has been deleted!!',
+            'Your Merchandise has been deleted!!',
             'success'
           )
         } else {
           Swal.fire(
             'Cancelled',
-            'Your Eduction has not been deleted !',
+            'Your Merchandise has not been deleted !',
             'error'
           )
         }

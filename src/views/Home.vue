@@ -11,7 +11,7 @@
         <div class="row">
 
           <div class="col-lg-3">
-            <router-link to="">
+            <router-link to="report-list">
               <div class="box-part text-center">
                 <i class="fab fa-wpforms fa-3x" aria-hidden="true" style="color:blue"></i>
                 <div class="title">
@@ -42,6 +42,7 @@
           </div>
 
           <div class="col-lg-3">
+            <router-link to="report-sheet-list">
             <div class="box-part text-center">
               <i class="fas fa-sort-amount-up fa-3x" aria-hidden="true" style="color:blue"></i>
 
@@ -49,9 +50,11 @@
                 <h4>Report Sheet</h4>
               </div>
             </div>
+            </router-link>
           </div>
 
           <div class="col-lg-3">
+            <router-link to="merchandiser-list">
             <div class="box-part text-center">
               <i class="fas fa-money-bill-alt fa-3x" aria-hidden="true" style="color:blue"></i>
 
@@ -59,6 +62,7 @@
                 <h4>Create Merchandise</h4>
               </div>
             </div>
+            </router-link>
           </div>
 
           <div class="col-lg-3">
