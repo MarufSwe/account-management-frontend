@@ -66,6 +66,7 @@
           </div>
 
           <div class="col-lg-3">
+            <router-link to="order-merchandiser-list">
             <div class="box-part text-center">
               <i class="fas fa-file-invoice-dollar fa-3x" aria-hidden="true" style="color:blue"></i>
 
@@ -73,6 +74,7 @@
                 <h4>Order Merchandise</h4>
               </div>
             </div>
+            </router-link>
           </div>
 
           <div class="col-lg-3">
@@ -94,7 +96,6 @@
                 </div>
               </div>
             </router-link>
-            >
           </div>
 
         </div>

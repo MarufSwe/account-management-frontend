@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import About from '../views/About.vue'
 import Vendor from '../views/Vendor.vue'
 import VendorList from '../views/VendorList'
+
+// Dashboard
+import Dashboard from '../views/dashboard/Dashboard.vue'
 
 // Schedule Education
 import EducationList from '../views/schedule_education/EducationList'
@@ -20,18 +22,22 @@ import ReportSheet from '../views/report_sheet/ReportSheet'
 import MerchandiserList from '../views/merchandiser/MerchandiserList'
 import MerchandiserCreate from '../views/merchandiser/MerchandiserCreate'
 
+// Order Merchandise
+import CreateOrderMerchan from '../views/order_merchandise/CreateOrderMerchan'
+import OrderMerchandiseList from '../views/order_merchandise/OrderMerchandiseList'
+
 Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  {
     path: '/home',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About
   },
   {
     path: '/vendor',
@@ -85,6 +91,18 @@ const routes = [
     path: '/create-merchandiser',
     name: 'MerchandiserCreate',
     component: MerchandiserCreate
+  },
+
+  // Order Merchandiser
+  {
+    path: '/create-order-merchandiser',
+    name: 'CreateOrderMerchan',
+    component: CreateOrderMerchan
+  },
+  {
+    path: '/order-merchandiser-list',
+    name: 'OrderMerchandiseList',
+    component: OrderMerchandiseList
   }
 ]
 
