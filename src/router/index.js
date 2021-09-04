@@ -6,6 +6,7 @@ import VendorList from '../views/VendorList'
 
 // Dashboard
 import Dashboard from '../views/dashboard/Dashboard.vue'
+import CustomInfo from '../views/dashboard/CustomInfo'
 
 // Schedule Education
 import EducationList from '../views/schedule_education/EducationList'
@@ -35,10 +36,19 @@ const routes = [
     component: Dashboard
   },
   {
+    path: '/custom-info',
+    name: 'CustomInfo',
+    component: CustomInfo
+  },
+
+  // Main
+  {
     path: '/home',
     name: 'Home',
     component: Home
   },
+
+  // Vendor
   {
     path: '/vendor',
     name: 'Vendor',
