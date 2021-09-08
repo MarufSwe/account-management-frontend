@@ -7,6 +7,10 @@ import VendorList from '../views/VendorList'
 // Dashboard
 import Dashboard from '../views/dashboard/Dashboard.vue'
 import CustomInfo from '../views/dashboard/CustomInfo'
+import CustomInfoData from '../views/dashboard/CustomInfoData'
+
+// Authentication
+import Registration from '../views/authentication/Registration'
 
 // Schedule Education
 import EducationList from '../views/schedule_education/EducationList'
@@ -39,6 +43,18 @@ const routes = [
     path: '/custom-info',
     name: 'CustomInfo',
     component: CustomInfo
+  },
+  {
+    path: '/custom-info-data',
+    name: 'CustomInfoData',
+    component: CustomInfoData
+  },
+
+  // Authentication
+  {
+    path: '/registration',
+    name: 'Registration',
+    component: Registration
   },
 
   // Main

@@ -383,7 +383,7 @@ export default {
             text: 'Info Added Successfully!'
           }).then((result) => {
             // this.$router.go()
-            this.$router.push('education-list')
+            this.$router.push('custom-info-data')
             console.log(result)
           })
           console.log(response)
