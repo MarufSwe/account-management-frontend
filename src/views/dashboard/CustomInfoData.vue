@@ -74,6 +74,7 @@ export default {
   },
   methods: {
     GetCustomInfoDataList: function () {
+      // axios.get('http://127.0.0.1:8000/api/custom-info/').then((response) => {
       axios.get('http://127.0.0.1:8000/api/custom-info/').then((response) => {
         this.all_custom_info_data = response.data
         console.log('ALLDATA##', this.all_custom_info_data)

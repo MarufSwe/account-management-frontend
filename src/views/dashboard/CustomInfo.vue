@@ -375,6 +375,7 @@ export default {
         notes: this.notes
 
       }
+      // axios.post('http://127.0.0.1:8000/api/custom-info/',
       axios.post('http://127.0.0.1:8000/api/custom-info/',
         bodyParameters)
         .then((response) => {

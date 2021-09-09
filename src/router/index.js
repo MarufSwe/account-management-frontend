@@ -11,6 +11,7 @@ import CustomInfoData from '../views/dashboard/CustomInfoData'
 
 // Authentication
 import Registration from '../views/authentication/Registration'
+import Login from '../views/authentication/Login'
 
 // Schedule Education
 import EducationList from '../views/schedule_education/EducationList'
@@ -55,6 +56,11 @@ const routes = [
     path: '/registration',
     name: 'Registration',
     component: Registration
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
 
   // Main

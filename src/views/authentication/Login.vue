@@ -1,49 +1,35 @@
 <template>
   <body>
   <div class="signup-form">
-    <form @submit.prevent="submitRegistrationForm">
-      <h2>Sign Up</h2>
-      <p>Please fill in this form to create an account!</p>
+    <form @submit.prevent="submitLoginForm">
+      <h2>Login</h2>
       <hr>
       <!--User Name-->
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
           </div>
-          <input type="text" class="form-control" name="username" placeholder="Username" required="required"
-                 v-model="username">
+          <input type="text" class="form-control" name="username" placeholder="Username" required="required" v-model="username">
         </div>
       </div>
-      <!--Email-->
-      <div class="form-group">
-        <div class="input-group">
-          <div class="input-group-prepend">
-          </div>
-          <input type="email" class="form-control" name="email" placeholder="Email Address" required="required"
-                 v-model="email">
-        </div>
-      </div>
+
       <!--Password-->
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
           </div>
-          <input type="text" class="form-control" name="password" placeholder="Password" required="required"
-                 v-model="password">
+          <input type="text" class="form-control" name="password" placeholder="Password" required="required" v-model="password">
         </div>
       </div>
       <div class="form-group">
         <button style="margin-bottom: 30px;"
-                @submit.prevent="submitRegistrationForm"
+                @submit.prevent="submitLoginForm"
                 class="btn btn-lg btn-primary">
-          Sign Up
+          Login
         </button>
       </div>
-      <div class="text-center">
-        Already have an account?
-        <router-link :to="{path: 'login'}">Login here</router-link>
-      </div>
     </form>
+<!--    <div class="text-center">Already have an account? <a href="#">Login here</a></div>-->
   </div>
   </body>
 </template>
@@ -54,32 +40,30 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 export default {
-  name: 'Registration',
+  name: 'Login',
   data () {
     return {
       username: null,
-      email: null,
       password: null
     }
   },
   methods: {
-    async submitRegistrationForm () {
+    async submitLoginForm () {
       const bodyParameters = {
         username: this.username,
-        email: this.email,
         password: this.password
 
       }
       // axios.post('http://127.0.0.1:8000/api/custom-info/',
-      axios.post('http://127.0.0.1:8000/api/register/',
+      axios.post('http://127.0.0.1:8000/api/login/',
         bodyParameters)
         .then((response) => {
           Swal.fire({
             icon: 'success',
-            text: 'Register Successfully!'
+            text: 'Login Successfully!'
           }).then((result) => {
             // this.$router.go()
-            this.$router.push('login')
+            this.$router.push('home')
             console.log(result)
           })
           console.log(response)
