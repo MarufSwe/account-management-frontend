@@ -209,7 +209,7 @@
             </div>
 
             <!--outstanding_credit-->
-            <div class="col-md-6 mt-3">
+            <div class="col-md-4 mt-3">
               <label>Outstanding Credit</label>
               <input
                 v-model="outstanding_credit"
@@ -220,11 +220,21 @@
             </div>
 
             <!--last_order-->
-            <div class="col-md-6 mt-3">
+            <div class="col-md-4 mt-3">
               <label>Last Order</label>
               <input
                 v-model="last_order"
                 type="date"
+                class="form-control"
+              />
+            </div>
+
+            <!--last_order-->
+            <div class="col-md-4 mt-3">
+              <label>Image</label>
+              <input
+                v-on:change="image"
+                type="file"
                 class="form-control"
               />
             </div>
@@ -270,7 +280,8 @@ export default {
       credit_allowance: null,
       collection: null,
       outstanding_credit: null,
-      last_order: null
+      last_order: null,
+      image: null
 
     }
   },
@@ -293,7 +304,8 @@ export default {
         credit_allowance: this.credit_allowance,
         collection: this.collection,
         outstanding_credit: this.outstanding_credit,
-        last_order: this.last_order
+        last_order: this.last_order,
+        image: this.image
       }
       axios.post('http://127.0.0.1:8000/api/acc-vendor/',
         bodyParameters)

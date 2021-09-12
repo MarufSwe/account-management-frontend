@@ -1,22 +1,24 @@
 <template>
   <div v-if="all_vendors">
+    <h2 style="font-weight: bold">Where are your Product Solde?</h2>
+    <hr>
     <div class="row">
-        <div class="col-6">
-          <router-link :to="{path: 'home'}">
-          <h3 style="font-weight: bold" class="text-primary">Vendor List</h3>
-          </router-link>
-        </div>
-
-        <div class="col-6">
-          <router-link :to="{path: '/vendor'}">
-            <a class="float" style="position: absolute; right: 0">
-              <button type="button" class="btn btn-primary" style="font-size: 15px; margin-right: 20px">
-                <span class="fas fa-plus"></span> Create Vendor
-              </button>
-            </a>
-          </router-link>
-        </div>
+      <div class="col-6">
+        <router-link :to="{path: 'home'}">
+          <h5 style="font-weight: bold" class="text-primary">Vendor List</h5>
+        </router-link>
       </div>
+
+      <div class="col-6">
+        <router-link :to="{path: '/vendor'}">
+          <a class="float" style="position: absolute; right: 0">
+            <button type="button" class="btn btn-primary" style="font-size: 15px; margin-right: 20px">
+              <span class="fas fa-plus"></span> Create Vendor
+            </button>
+          </a>
+        </router-link>
+      </div>
+    </div>
     <table class="table table-hover">
       <thead class="tableHeader">
       <tr>
@@ -31,6 +33,7 @@
         <th scope="col">Credit Allowance</th>
         <th scope="col">Action</th>
         <th scope="col">Last Order</th>
+        <th scope="col">Image</th>
       </tr>
       </thead>
 
@@ -48,6 +51,7 @@
         <td>{{vendor.owner_name}}</td>
         <td>{{vendor.credit_allowance}}</td>
         <td>{{vendor.last_order}}</td>
+        <td>{{vendor.image}}</td>
 
         <td class="td_action">
           <i
@@ -57,6 +61,13 @@
         </td>
       </tr>
     </table>
+    <router-link :to="{path: 'media_library'}">
+      <button style="margin-bottom: 30px;"
+              @submit.prevent="submitCustomInfo"
+              class="btn btn-lg btn-primary">
+        Continue
+      </button>
+    </router-link>
   </div>
 </template>
 

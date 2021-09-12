@@ -9,7 +9,21 @@
         <div class="input-group">
           <div class="input-group-prepend">
           </div>
-          <input type="text" class="form-control" name="username" placeholder="Username" required="required" v-model="username">
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            placeholder="Username"
+            required="required"
+            v-model="username"
+            :class="{'is-invalid':designation_error_data && designation_error_data.username}"
+          />
+          <!--error handling-->
+          <div
+            :class="{'invalid-feedback':designation_error_data && designation_error_data.username}"
+            v-if="designation_error_data && designation_error_data.username"
+          >{{designation_error_data.username}}
+          </div>
         </div>
       </div>
 
@@ -18,7 +32,8 @@
         <div class="input-group">
           <div class="input-group-prepend">
           </div>
-          <input type="text" class="form-control" name="password" placeholder="Password" required="required" v-model="password">
+          <input type="text" class="form-control" name="password" placeholder="Password" required="required"
+                 v-model="password">
         </div>
       </div>
       <div class="form-group">
@@ -29,7 +44,7 @@
         </button>
       </div>
     </form>
-<!--    <div class="text-center">Already have an account? <a href="#">Login here</a></div>-->
+    <!--    <div class="text-center">Already have an account? <a href="#">Login here</a></div>-->
   </div>
   </body>
 </template>
@@ -44,7 +59,11 @@ export default {
   data () {
     return {
       username: null,
-      password: null
+      password: null,
+
+      designation_error_data: {
+        username: null
+      }
     }
   },
   methods: {
@@ -63,13 +82,13 @@ export default {
             text: 'Login Successfully!'
           }).then((result) => {
             // this.$router.go()
-            this.$router.push('home')
+            this.$router.push('vendor-list')
             console.log(result)
           })
           console.log(response)
         })
         .catch((error) => {
-          this.field_validation_data = error.response.data
+          this.designation_error_data = error.response.data
           console.log('--++', error.response)
         })
     }

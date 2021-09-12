@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Vendor from '../views/Vendor.vue'
 import VendorList from '../views/VendorList'
 
+import MediaLibrary from '../views/media_library/MediaLibrary'
+
 // Dashboard
 import Dashboard from '../views/dashboard/Dashboard.vue'
 import CustomInfo from '../views/dashboard/CustomInfo'
@@ -36,7 +38,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/dashboard',
+    path: '',
     name: 'Dashboard',
     component: Dashboard
   },
@@ -68,6 +70,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/media_library',
+    name: 'MediaLibrary',
+    component: MediaLibrary
   },
 
   // Vendor
