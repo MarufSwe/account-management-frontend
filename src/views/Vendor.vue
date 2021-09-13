@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-6">
           <router-link :to="{path: 'home'}">
-          <h3 style="font-weight: bold" class="text-primary">Vendor Create Form</h3>
+            <h3 style="font-weight: bold" class="text-primary">Vendor Create Form</h3>
           </router-link>
         </div>
 
@@ -43,7 +43,7 @@
 
             <!--Vendor ID-->
             <div class="col-md-4">
-              <label >Vendor ID</label>
+              <label>Vendor ID</label>
               <input
                 id="department_code"
                 v-model="vendor_id"
@@ -229,13 +229,14 @@
               />
             </div>
 
-            <!--last_order-->
+            <!--Image-->
             <div class="col-md-4 mt-3">
               <label>Image</label>
               <input
-                v-on:change="image"
-                type="file"
                 class="form-control"
+                type="file"
+                name="image"
+                @change="handleImage"
               />
             </div>
 
@@ -243,8 +244,8 @@
 
           <div class="form-group mt-4">
             <button style="margin-bottom: 30px;"
-              @submit.prevent="submitVendor"
-              class="btn btn-lg btn-primary float-right"
+                    @submit.prevent="submitVendor"
+                    class="btn btn-lg btn-primary float-right"
             >Submit
             </button>
           </div>
@@ -325,6 +326,27 @@ export default {
           console.log('--++', error.response)
         })
     }
+
+    // handleImage () {
+    //   var files = document.getElementById('image').files
+    //   if (files.length > 0) {
+    //     // getBase64(files[0]);
+    //     this.getBase64(files[0])
+    //   }
+    // },
+    //
+    // getBase64 (file) {
+    //   var reader = new FileReader()
+    //   reader.readAsDataURL(file)
+    //   reader.onload = function () {
+    //     console.log(reader.result)
+    //     document.getElementById('imageID').src = reader.result
+    //     document.getElementById('newImage').value = reader.result
+    //   }
+    //   reader.onerror = function (error) {
+    //     console.log('Error: ', error)
+    //   }
+    // }
   }
 }
 </script>

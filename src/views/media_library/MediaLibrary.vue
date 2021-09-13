@@ -4,14 +4,45 @@
     <h2 style="font-weight: bold">Upload Individual Photo of your Product</h2>
     <hr>
 
-    <input accept="image/*" type='file' id="imgInp"/>
-<!--    <img id="blah" src="#" alt="your image"/>-->
+    <div class="container">
+      <div class="row">
+        <div class="col-4 mt-3">
+          <label>Image 1</label>
+          <input
+            class="form-control"
+            type="file"
+            name="image 1"
+            @change="handleImage"
+          />
+        </div>
+        <div class="col-4 mt-3">
+          <label>Image 2</label>
+          <input
+            class="form-control"
+            type="file"
+            name="image 2"
+            @change="handleImage"
+          />
+        </div>
+        <div class="col-4 mt-3">
+          <label>Image 3</label>
+          <input
+            class="form-control"
+            type="file"
+            name="image 3"
+            @change="handleImage"
+          />
+        </div>
+      </div>
+    </div>
 
-    <button style="margin-bottom: 30px;"
+    <router-link :to="{path: 'home'}">
+    <button style="margin-top: 50px;"
             @submit.prevent="submitCustomInfo"
             class="btn btn-lg btn-primary">
-      Home
+      Submit & Home
     </button>
+    </router-link>
   </div>
 </template>
 

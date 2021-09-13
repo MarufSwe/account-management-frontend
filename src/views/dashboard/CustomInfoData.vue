@@ -17,7 +17,7 @@
         class="tableRow"
         v-for="custom_info in all_custom_info_data"
         :key="custom_info">
-        <!--        <td>{{SL+1}}</td>-->
+        <!--<td>{{SL+1}}</td>-->
         <td>{{custom_info.license}}</td>
         <td>{{custom_info.product_type}}</td>
         <td>{{custom_info.flower_type}}</td>
